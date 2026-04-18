@@ -22,7 +22,7 @@ class ToggleSwitch extends StatelessWidget {
         ),
 
         /// Status
-        Text(status ? 'ON' : 'OFF', style: TextStyle(fontSize: 14, color: status ? Color(0xFF35a67c) : Color(0xFFB8B8B8), fontWeight: FontWeight.w700, fontFamily: 'Poppins')),
+        Text(status ? 'ON' : 'OFF', style: TextStyle(fontSize: 18, color: status ? Color(0xFF35a67c) : Color(0xFFB8B8B8), fontWeight: FontWeight.w700, fontFamily: 'Poppins')),
       ],
     );
   }
