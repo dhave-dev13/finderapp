@@ -7,13 +7,37 @@ environment:
   sdk: ^3.10.3
 
 dependencies:
+  dartz: ^0.10.1
+  dio: ^5.9.2
+  equatable: ^2.0.8
   flutter:
     sdk: flutter
+  flutter_bloc: ^9.1.1
+  geolocator: ^14.0.2
+  json_annotation: ^4.11.0
+  logger: ^2.7.0
+  permission_handler: ^12.0.1
+  pretty_dio_logger: ^1.4.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
+  build_runner: ^2.13.1
+  json_serializable: ^6.13.1
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins/Poppins-Bold.ttf
+        - asset: assets/fonts/Poppins/Poppins-Italic.ttf
+        - asset: assets/fonts/Poppins/Poppins-Light.ttf
+        - asset: assets/fonts/Poppins/Poppins-Medium.ttf
+        - asset: assets/fonts/Poppins/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins/Poppins-SemiBold.ttf
