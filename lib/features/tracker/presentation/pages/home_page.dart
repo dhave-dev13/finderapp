@@ -1,5 +1,6 @@
-import 'package:finderapp/core/enums.dart';
+import 'package:finderapp/core/utils/enums.dart';
 import 'package:finderapp/features/tracker/presentation/bloc/geolocator_bloc/geolocator_bloc.dart';
+import 'package:finderapp/features/tracker/presentation/bloc/target_location/target_location_bloc.dart';
 import 'package:finderapp/features/tracker/presentation/widgets/toggle_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,7 +29,7 @@ class HomePage extends StatelessWidget {
             Center(
               child: Text(
                 'Tracking',
-                style: TextStyle(fontSize: 16, fontFamily: 'Poppins', fontWeight: FontWeight.w600),
+                style: TextStyle(fontSize: 20, fontFamily: 'Poppins', fontWeight: FontWeight.w600),
               ),
             ),
             const SizedBox(height: 10),
@@ -43,6 +44,9 @@ class HomePage extends StatelessWidget {
                       onToggle: (value) {
                         if (value) {
                           context.read<GeolocatorBloc>().add(StartLocationTracking());
+
+                          /// get target locations
+                          context.read<TargetLocationBloc>().add(GetTargetLocation());
                         } else {
                           context.read<GeolocatorBloc>().add(StopLocationTracking());
                         }
