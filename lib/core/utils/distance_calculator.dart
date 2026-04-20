@@ -1,5 +1,8 @@
 import 'dart:math';
 
+// 2. Distance Calculation
+// For each location reading, compute the distance between the device and the target coordinates
+// using the Haversine formula. The result should be expressed in metres or kilometres.
 class DistanceCalculator {
   static double calculateDistance(double lat1, double lng1, double lat2, double lng2) {
     const double earthRadius = 6371000;
