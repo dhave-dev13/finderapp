@@ -44,7 +44,7 @@ class HomePage extends StatelessWidget {
         ),
       ],
       child: Scaffold(
-        appBar: AppBar(title: Text('Location Tracker'), backgroundColor: Color(0xFFf2f7f6)),
+        appBar: AppBar(title: Text('Location Tracker'), centerTitle: true, backgroundColor: Color(0xFFf2f7f6)),
         body: Column(
           children: [
             const SizedBox(height: 20),
