@@ -7,13 +7,55 @@ environment:
   sdk: ^3.10.3
 
 dependencies:
+
+  #helpers
+  logger: ^2.7.0
+  dartz: ^0.10.1
+  equatable: ^2.0.8
+
   flutter:
     sdk: flutter
+  
+  #state management
+  flutter_bloc: ^9.1.1
+
+  #packages
+  geolocator: ^14.0.2
+  permission_handler: ^12.0.1
+
+  #api integrations
+  dio: ^5.9.2
+  retrofit: ^4.9.2
+  json_annotation: ^4.11.0
+  pretty_dio_logger: ^1.4.0
+  get_it: ^9.2.1
+  flutter_dotenv: ^6.0.0
+  hive_flutter: ^1.1.0
+  path_provider: ^2.1.5
+  hive: ^2.2.3
+  uuid: ^4.5.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
+  build_runner: ^2.13.1
+  json_serializable: ^6.13.1
+  retrofit_generator: ^10.2.5
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/
+    - .env.dev
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins/Poppins-Bold.ttf
+        - asset: assets/fonts/Poppins/Poppins-Italic.ttf
+        - asset: assets/fonts/Poppins/Poppins-Light.ttf
+        - asset: assets/fonts/Poppins/Poppins-Medium.ttf
+        - asset: assets/fonts/Poppins/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins/Poppins-SemiBold.ttf
