@@ -77,6 +77,8 @@ class GeolocatorBloc extends Bloc<GeolocatorEvent, GeolocatorState> {
       _latestPosition = position;
     });
 
+    
+
     // Sample every 5 seconds
     _locationTimer = Timer.periodic(event.interval, (timer) async {
       if (_latestPosition != null) {
@@ -116,12 +118,7 @@ class GeolocatorBloc extends Bloc<GeolocatorEvent, GeolocatorState> {
     appLogger.d('LocationDataReceived ::: $event');
 
     // Calculate distance using Haversine formula
-    final distanceInMeters = DistanceCalculator.calculateDistance(
-      event.position.latitude,
-      event.position.longitude,
-      _currentTarget?.targetLat ?? 0,
-      _currentTarget?.targetLng ?? 0,
-    );
+    final distanceInMeters = Geolocator.distanceBetween(event.position.latitude, event.position.longitude, _currentTarget?.targetLat ?? 0, _currentTarget?.targetLng ?? 0);
 
     final formattedDistance = DistanceCalculator.formatDistance(distanceInMeters);
 
