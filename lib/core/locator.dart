@@ -1,4 +1,5 @@
 import 'package:finderapp/core/config/app_config.dart';
+import 'package:finderapp/core/services/app_lifecycle_service.dart';
 import 'package:finderapp/core/services/hive/global_hive.dart';
 import 'package:finderapp/core/services/hive/hive_service.dart';
 import 'package:finderapp/features/tracker/data/datasources/remote/geo_location_data_source.dart';
@@ -20,6 +21,12 @@ Future<void> initServiceLocator() async {
   HiveService hiveService = HiveService();
   sl.registerLazySingleton<HiveService>(() => hiveService);
   await GetIt.instance<GlobalHive>().init(hiveService);
+
+  // Register AppLifecycleService as singleton
+  final appLifecycleService = AppLifecycleService();
+  // Initialize immediately
+  appLifecycleService.init(); 
+  sl.registerSingleton<AppLifecycleService>(appLifecycleService);
 
   // --------------- REPOSITORIES --------------- //
   sl.registerLazySingleton<GeoLocatorRepository>(() => GeoLocatorRepositoryImpl(sl()));

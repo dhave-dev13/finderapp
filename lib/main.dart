@@ -7,6 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
 
+  WidgetsFlutterBinding.ensureInitialized();
+
   await AppConfig(
       baseUrl: 'https://api.mockapi.com/api/v1',
       dotenvFile: '.env.dev',

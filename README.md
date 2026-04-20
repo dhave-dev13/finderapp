@@ -45,7 +45,8 @@ lib/
 │   │   └── params.dart
 │   ├── services
 │   │   ├── hive /// app storage using hive
-│   │   └── hive_adapters /// hive adapters -> model parsing
+│   │   ├── hive_adapters /// hive adapters -> model parsing
+│   │   └── app_lifecycle_service.dart /// handle applifecycle for foreground and background polling
 │   ├── usecase.dart 
 │   └── utils
 │       ├── app_logger.dart /// app global logger

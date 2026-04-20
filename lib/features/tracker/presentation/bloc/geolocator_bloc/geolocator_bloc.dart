@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'dart:ui';
 
+import 'package:finderapp/core/services/app_lifecycle_service.dart';
 import 'package:finderapp/core/services/hive/global_hive.dart';
 import 'package:finderapp/core/services/hive/hive_service.dart';
 import 'package:finderapp/core/utils/app_logger.dart';
@@ -28,6 +30,10 @@ class GeolocatorBloc extends Bloc<GeolocatorEvent, GeolocatorState> {
   /// for generating id when saving locations to storage
   final HiveService _hiveService = GetIt.instance<GlobalHive>().globalHive;
 
+  /// AppLifeCycleService
+  final AppLifecycleService _lifecycleService = GetIt.instance<AppLifecycleService>();
+  StreamSubscription<AppLifecycleState>? _lifecycleSubscription;
+
   GeolocatorBloc() : super(GeolocatorState()) {
     on<StartLocationTracking>(_startLocationTracking);
     on<StopLocationTracking>(_stopLocationTracking);
@@ -39,6 +45,31 @@ class GeolocatorBloc extends Bloc<GeolocatorEvent, GeolocatorState> {
 
     // Load existing records when bloc is created
     add(const LoadHistoricalRecords());
+
+    // Listen to global app lifecycle stream
+    _lifecycleSubscription = _lifecycleService.lifecycleStream.listen((state) {
+      _handleAppLifecycleState(state);
+    });
+  }
+
+    // ==================== LIFECYCLE HANDLER ====================
+  
+  void _handleAppLifecycleState(AppLifecycleState state) {
+    appLogger.d('BLoC received lifecycle state: $state');
+    
+    if (state == AppLifecycleState.paused || state == AppLifecycleState.inactive) {
+      // App went to background - PAUSE tracking
+      add(StopLocationTracking());
+    } else if (state == AppLifecycleState.resumed) {
+      // App came to foreground - RESUME tracking
+      add(StartLocationTracking());
+    }
+  }
+
+  @override
+  Future<void> close() {
+    _lifecycleSubscription?.cancel();
+    return super.close();
   }
 
   /// step 1: toggle switch event for ON and OFF
