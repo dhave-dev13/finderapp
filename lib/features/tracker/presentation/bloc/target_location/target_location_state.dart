@@ -3,20 +3,25 @@ part of 'target_location_bloc.dart';
 
 class TargetLocationState extends Equatable {
   final FetchStatus? status;
-  final TargetLocationModel? data;
+  final TargetLocationEntity? data;
   final String? message;
-  const TargetLocationState({this.status = FetchStatus.initial, this.data, this.message});
+  final bool hasData;
+  const TargetLocationState({this.status = FetchStatus.initial, this.data, this.message, this.hasData = false});
   
   @override
-  List<Object?> get props => [status, data];
+  List<Object?> get props => [status, data, message, hasData];
 
   TargetLocationState copyWith({
     FetchStatus? status,
-    TargetLocationModel? data,
+    TargetLocationEntity? data,
+    String? message,
+    bool? hasData
   }) {
     return TargetLocationState(
       status: status ?? this.status,
       data: data ?? this.data,
+      message: message ?? this.message,
+      hasData: hasData ?? this.hasData,
     );
   }
 }

@@ -1,6 +1,6 @@
 part of 'target_location_bloc.dart';
 
-class TargetLocationEvent extends Equatable {
+abstract class TargetLocationEvent extends Equatable {
   const TargetLocationEvent();
 
   @override
@@ -8,3 +8,7 @@ class TargetLocationEvent extends Equatable {
 }
 
 class GetTargetLocation extends TargetLocationEvent {}
+
+class ClearTargetLocation extends TargetLocationEvent {}
+
+class ResetTargetLocation extends TargetLocationEvent {}
