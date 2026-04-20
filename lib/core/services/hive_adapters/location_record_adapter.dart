@@ -15,6 +15,7 @@ class LocationRecordAdapter extends TypeAdapter<LocationRecordModel>{
       longitude: reader.read(),
       distance: reader.read(),
       formattedDistance: reader.read(),
+      targetId: reader.read(),
     );
   }
 
@@ -26,6 +27,7 @@ class LocationRecordAdapter extends TypeAdapter<LocationRecordModel>{
     writer.write(obj.longitude);
     writer.write(obj.distance);
     writer.write(obj.formattedDistance);
+    writer.write(obj.targetId);
   }
   
 }
