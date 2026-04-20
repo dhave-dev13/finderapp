@@ -67,6 +67,11 @@ Using https://www.mockapi.com/auth/login, i have setup a mock api with the follo
 https://api.mockapi.com/api/v1, the token is defined in .env.dev file.
 
 
+https://github.com/user-attachments/assets/0fbb7354-7c83-4055-bdee-864f681fb099
+
+
+
+
 
 
 
