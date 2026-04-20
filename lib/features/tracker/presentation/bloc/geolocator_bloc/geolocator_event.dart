@@ -1,6 +1,6 @@
 part of 'geolocator_bloc.dart';
 
-class GeolocatorEvent extends Equatable {
+abstract class GeolocatorEvent extends Equatable {
   const GeolocatorEvent();
 
   @override
@@ -15,12 +15,35 @@ class StartLocationTracking extends GeolocatorEvent {
   List<Object?> get props => [interval];
 }
 
+class ToggleTracking extends GeolocatorEvent {}
+
 class StopLocationTracking extends GeolocatorEvent {}
 
-class LocationTick extends GeolocatorEvent {
+class LocationDataReceived extends GeolocatorEvent {
   final Position position;
-  const LocationTick(this.position);
+  
+  const LocationDataReceived(this.position);
   
   @override
   List<Object?> get props => [position];
 }
+
+class LoadHistoricalRecords extends GeolocatorEvent {
+  final int? limit;
+  
+  const LoadHistoricalRecords({this.limit});
+  
+  @override
+  List<Object?> get props => [limit];
+}
+
+class UpdateFilterLimit extends GeolocatorEvent {
+  final int limit;
+  
+  const UpdateFilterLimit(this.limit);
+  
+  @override
+  List<Object?> get props => [limit];
+}
+
+class ClearLocationHistory extends GeolocatorEvent {}
