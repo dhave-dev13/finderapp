@@ -1,2 +1,2 @@
-enum FetchStatus {initial, loading, success, failed, }
-enum GeolocatorStatus { idle, tracking, error }
+enum FetchStatus {initial, loading, loaded, failed, }
+enum GeolocatorStatus { idle, loadingTargetLoc, tracking, error }
