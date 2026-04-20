@@ -29,5 +29,33 @@ Specificy in configuration argument to include ```sh "--dart-define-from-file=.e
 ```project/.vscode/launch.json```
 
 <h3>Folder Structure</h3>
-<p>I'm using clean architecure with bloc for this simple app to show indicate the capability of this app to upscale whenever. </p>
+<p>I'm using clean architecure with bloc (https://resocoder.com/flutter-clean-architecture-tdd/) for this simple app to show indicate the capability of this app to upscale whenever. </p>
+
+lib/
+├── core
+│   ├── api
+│   │   └── api_interceptor.dart
+│   ├── config
+│   │   └── app_config.dart
+│   ├── error
+│   │   └── failure.dart
+│   ├── locator.dart
+│   ├── params
+│   │   └── params.dart
+│   ├── services
+│   │   ├── hive
+│   │   └── hive_adapters
+│   ├── usecase.dart
+│   └── utils
+│       ├── app_logger.dart
+│       ├── app_strings.dart
+│       ├── distance_calculator.dart
+│       ├── enums.dart
+│       └── helpers.dart
+├── features
+│   └── tracker
+│       ├── data
+│       ├── domain
+│       └── presentation
+└── main.dart
 
