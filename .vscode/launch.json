@@ -9,7 +9,10 @@
             "type": "dart",
             "request": "launch",
             "flutterMode": "debug",
-            "program": "lib/main.dart"
+            "program": "lib/main.dart",
+            "args": [
+                "--dart-define-from-file=.env.dev",
+            ]
         },
         {
             "name": "finderapp (profile mode)",
