@@ -37,26 +37,36 @@ lib/
 │   ├── api
 │   │   └── api_interceptor.dart
 │   ├── config
-│   │   └── app_config.dart
+│   │   └── app_config.dart /// app instances, services, and dio 
 │   ├── error
-│   │   └── failure.dart
-│   ├── locator.dart
+│   │   └── failure.dart /// for Either usecase in dartz
+│   ├── locator.dart /// get_it for dependency management
 │   ├── params
 │   │   └── params.dart
 │   ├── services
-│   │   ├── hive
-│   │   └── hive_adapters
-│   ├── usecase.dart
+│   │   ├── hive /// app storage using hive
+│   │   └── hive_adapters /// hive adapters -> model parsing
+│   ├── usecase.dart 
 │   └── utils
-│       ├── app_logger.dart
-│       ├── app_strings.dart
-│       ├── distance_calculator.dart
-│       ├── enums.dart
-│       └── helpers.dart
+│       ├── app_logger.dart /// app global logger
+│       ├── app_strings.dart /// app global strings
+│       ├── distance_calculator.dart /// distance calculator for geolocation
+│       ├── enums.dart 
+│       └── helpers.dart /// string helper, 
 ├── features
-│   └── tracker
+│   └── tracker /// tracker feature
 │       ├── data
 │       ├── domain
 │       └── presentation
 └── main.dart
 ```
+
+<h2>Mock API Setup</h2>
+Using https://www.mockapi.com/auth/login, i have setup a mock api with the following endpoint:
+
+https://api.mockapi.com/api/v1, the token is defined in .env.dev file.
+
+
+
+
+
