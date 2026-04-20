@@ -31,6 +31,7 @@ Specificy in configuration argument to include ```sh "--dart-define-from-file=.e
 <h3>Folder Structure</h3>
 <p>I'm using clean architecure with bloc (https://resocoder.com/flutter-clean-architecture-tdd/) for this simple app to show indicate the capability of this app to upscale whenever. </p>
 
+```sh
 lib/
 ├── core
 │   ├── api
@@ -58,4 +59,4 @@ lib/
 │       ├── domain
 │       └── presentation
 └── main.dart
-
+```
