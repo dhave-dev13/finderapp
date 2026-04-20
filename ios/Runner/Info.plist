@@ -48,7 +48,7 @@
 
 	<!-- Permission options for the `location` group -->
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Need location when in use</string>
+    <string>This app needs location access to track your position while using the app</string>
     <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
     <string>Your realtime location will be required when in use.</string>
     <key>NSLocationUsageDescription</key>
